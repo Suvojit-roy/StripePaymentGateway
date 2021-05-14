@@ -3,7 +3,7 @@ const express=require('express')
 
 
 const stripe=require("stripe")("sk_test_51IpczwSH2HRN2FzsEEXovr4WwlrLuXfWHvIExQwvAdENcM1Q3pD5qzJxvbshMvNoGHCIy6xuWukTsIIsp6uSenPI000seyevZz")
-const uuid=require("uuid")
+const { v4: uuidv4 } = require('uuid');
 
 const app=express();
 
@@ -20,7 +20,7 @@ app.post('/payment',(req,res)=>{
     const {product,token}=req.body;
     console.log("PRODUCT",product);
     console.log("PRICE",product.price);
-    const idempotencyKey= uuid()
+    const idempotencyKey= uuidv4()
 
     return stripe.customers.create({
         email:token.email,

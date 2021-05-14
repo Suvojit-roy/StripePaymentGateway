@@ -1,0 +1,3 @@
+For making payments using stripe we use the following packages-express,cors,uuid,stripe
+
+make a folderwith the name you desire.I am using stripebackend for mine
